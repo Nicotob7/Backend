@@ -1,3 +1,12 @@
 .separador{
     padding: 20px;
+    
+}
+
+input{
+    display: block;
+}
+
+h1{
+    display: block;
 }

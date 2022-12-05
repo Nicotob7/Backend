@@ -2,6 +2,7 @@
   import React from 'react';
   import './plantilla.css'
   import ProductoList from '../producto/productoList'
+  import Paginas from "../producto/paginas";
   
 
   const { Header, Content, Footer} = Layout; 
@@ -10,18 +11,8 @@
     return (
       <Layout className="layout">
       <Header className='header'>
-      <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(4).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
+
+        <Paginas/>
 
       
       </Header>

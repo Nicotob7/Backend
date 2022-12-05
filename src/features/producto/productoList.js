@@ -16,7 +16,7 @@ const ProductoList = () => {
     const [items,setItems] = useState(data)
 
     useEffect(()=>{
-      axios.get("https://g3acd73941bbeca-on9y29ahsbpqtzng.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/tablita3/")
+      axios.get("https://gb3c55b057f2555-samai.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/productos/")
       .then((registros)=>{
         setItems(registros.data.items)
        
@@ -29,7 +29,7 @@ const ProductoList = () => {
     const [post, setPost] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get("https://g3acd73941bbeca-on9y29ahsbpqtzng.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/tablita3/")
+        axios.get("https://gb3c55b057f2555-samai.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/productos/")
         .then((response) => {
           setPost(response.data);
         });
@@ -38,12 +38,14 @@ const ProductoList = () => {
 
 
     const agregar = () => {
-         axios.post("https://g3acd73941bbeca-on9y29ahsbpqtzng.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/tablita3/",
+         axios.post("https://gb3c55b057f2555-samai.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/productos/",
          {
             id: document.getElementById("id").value,
             nombre: document.getElementById("nombre").value,
             precio: document.getElementById("precio").value,
-            descripcion: document.getElementById("descripcion").value
+            precio1: document.getElementById("precio1").value,
+            precio2: document.getElementById("precio2").value,
+            
         })
         .then((response)=>{
             console.log(response)
@@ -53,7 +55,8 @@ const ProductoList = () => {
     }
 
     const deletpost = () => {
-        axios.delete("https://g3acd73941bbeca-on9y29ahsbpqtzng.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/tablita3/"+document.getElementById("id").value)
+        axios.delete("https://gb3c55b057f2555-samai.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/productos/"+
+        document.getElementById("id").value)
         .then((response)=>{
             console.log(response)
             alert("Producto Eliminado")
@@ -96,8 +99,9 @@ const ProductoList = () => {
             <div>
                 Escriba id producto <Input placeholder="Id producto"type='text' id='id' />
                 Escriba Nombre Producto<Input placeholder="Nombre"type='text' id='nombre' />
-                Escriba Precio Producto<Input placeholder="Precio Producto"type='text' id='precio' />
-                Escriba Drescripcion Producto<Input placeholder="Descripcion Producto"type='text' id='descripcion' />
+                Escriba Precio Anterior<Input placeholder="Precio Producto"type='text' id='precio' />
+                Escriba Precio Actual<Input placeholder="Precio Producto Actual"type='text' id='precio1' />
+                Escriba Precio Futuro<Input placeholder="Precio Producto Futuro"type='text' id='precio2' />
             </div>
         )
     };
@@ -129,7 +133,7 @@ const ProductoList = () => {
                 }
             </Row>
 
-            <Drawer title="Tabla de porqueria" placement="left" onClose={onClose} open={open}>
+            <Drawer title="Tabla productos" placement="left" onClose={onClose} open={open}>
 
                 <h1><Button type="primary" onClick={showModal}>Agregar Productos</Button></h1>
                 <h1><Button type="primary" onClick={showModal}>Editar Productos-- </Button></h1>

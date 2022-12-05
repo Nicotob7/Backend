@@ -6,32 +6,38 @@ const { Meta } = Card;
 const Producto = (props) =>{
   const [nombre, setNombre] = useState(props.data.nombre);
   const [precio,setPrecio] = useState(props.data.precio);
-  const [descripcion,setDescripcion] = useState(props.data.descripcion);
+  const [precio1,setDescripcion] = useState(props.data.precio1);
+  const [precio2,setPrecio2] = useState(props.data.precio2);
+  
 
   return (  
-  <Card
-    style={{
-      width: 300,
-    }}
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    }
+    <Card
+      title={nombre}
+      bordered={false}
+      style={{
+        width: 300,
+      }}
+
     actions={[
       <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" onClick={props.onClick} />,
-      <EllipsisOutlined key="ellipsis" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" onClick={props.onClick} />,
     ]}
   >
+
+    
     <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-      title={nombre}
-      description={descripcion + " Precio: "+ precio}
+      title={" Precio actual: "+ precio1}
+      description={"Precio anterior: "+precio+ "  Precio futuro: "+precio2}
     />
+
+
   </Card>
 );
-} 
+}
+
+
+
+
 
 export default Producto;

@@ -1,88 +1,45 @@
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-  } from '@ant-design/icons';
-  import { Breadcrumb, Layout, Menu } from 'antd';
-  import React, { useState } from 'react';
+  import { Breadcrumb, Layout} from 'antd';
+  import React from 'react';
   import './plantilla.css'
   import ProductoList from '../producto/productoList'
-  const { Header, Content, Footer, Sider } = Layout;
-  
-  function getItem(label, key, icon, children) {
-    return {
-      key,
-      icon,
-      children,
-      label,
-    };
-  }
-  
-  const items = [
-    getItem('Productos', '1', <PieChartOutlined />),
-    getItem('Despacho', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-      getItem('Tom', '3'),
-      getItem('Bill', '4'),
-      getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
-  ];
+  import { Button} from 'antd';
+
+  const { Header, Content, Footer} = Layout; 
   
   const App = () => {
-    const [collapsed, setCollapsed] = useState(false);
     return (
-      <Layout
+      <Layout className="layout">
+      <Header className='header'>
+
+      
+      </Header>
+      
+      <Content
         style={{
-          minHeight: '100vh',
+          padding: '0 50px',
         }}
       >
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-        </Sider>
-        <Layout className="site-layout">
-          <Header
-            className="site-layout-background"
-            style={{
-              padding: 0,
-            }}
-          />
-          <Content
-            style={{
-              margin: '0 16px',
-            }}
-          >
-            <Breadcrumb
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                minHeight: 360,
-              }}
-            >
+        <Breadcrumb
+          style={{
+            margin: '16px 0',
+          }}
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="site-layout-content">Content</div>
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+
               <ProductoList />
-            </div>
-          </Content>
-          <Footer
-            style={{
-              textAlign: 'center',
-            }}
-          >
-            Ant Design ©2018 Created by Ant UED
-          </Footer>
-        </Layout>
-      </Layout>
+              Ant Design ©2018 Created by Ant UED
+    </Footer>
+  </Layout>
     );
   };
   

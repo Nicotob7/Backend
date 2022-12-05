@@ -1,9 +1,10 @@
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
+import { Card } from 'antd';
 import React, { useState } from 'react';
 const { Meta } = Card;
 
 const Producto = (props) =>{
+  const [id , setId] = useState(props.data.id)
   const [nombre, setNombre] = useState(props.data.nombre);
   const [precio,setPrecio] = useState(props.data.precio);
   const [precio1,setDescripcion] = useState(props.data.precio1);
@@ -12,11 +13,12 @@ const Producto = (props) =>{
 
   return (  
     <Card
-      title={nombre}
+      title={id+".-"+nombre}
       bordered={false}
       style={{
         width: 300,
       }}
+      
 
     actions={[
       <SettingOutlined key="setting" />,
@@ -27,7 +29,8 @@ const Producto = (props) =>{
 
     
     <Meta
-      title={" Precio actual: "+ precio1}
+    
+      title={" Precio actual: $"+ precio1}
       description={"Precio anterior: "+precio+ "  Precio futuro: "+precio2}
     />
 

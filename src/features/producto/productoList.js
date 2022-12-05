@@ -8,8 +8,9 @@ import {Button } from 'antd'
 import { Input } from 'antd';
 
 
-const data = [ 1
+const data = [ 
 ]
+
 
 const ProductoList = () => {
     const [open, setOpen] = useState(false);

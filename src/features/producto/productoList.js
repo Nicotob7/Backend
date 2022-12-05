@@ -8,7 +8,7 @@ import {Button } from 'antd'
 import { Input } from 'antd';
 
 
-const data = [
+const data = [ 1
 ]
 
 const ProductoList = () => {
